@@ -27,6 +27,7 @@ procrastinate = 'procrastinate.cli:main'
 [tool.poetry.dependencies]
 python = "^3.7"
 aiopg = "*"
+asgiref = "*"
 attrs = "*"
 click = "*"
 croniter = "*"
@@ -42,8 +43,8 @@ typing-extensions = {version = "*", python = "<3.8"}
 django = ["django"]
 sqlalchemy = ["sqlalchemy"]
 
-[tool.poetry.dev-dependencies]
-black = {version = "*", allow-prereleases = true}
+[tool.poetry.group.dev.dependencies]
+black = "*"
 dunamai = "*"
 flake8 = "*"
 migra = "*"
