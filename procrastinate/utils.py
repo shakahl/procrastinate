@@ -21,6 +21,7 @@ from typing import (
 
 import attr
 import dateutil.parser
+from asgiref import sync
 
 from procrastinate import exceptions
 
@@ -192,12 +193,7 @@ def sync_await(awaitable: Awaitable[T]) -> T:
     """
     Given an awaitable, awaits it synchronously. Returns the result after it's done.
     """
-
-    loop = asyncio.get_event_loop()
-    if loop.is_closed():
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-    return loop.run_until_complete(awaitable)
+    return sync.async_to_sync(awaitable)()
 
 
 def causes(exc: Optional[BaseException]):

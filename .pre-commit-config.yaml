@@ -32,6 +32,7 @@ repos:
     args: []
     additional_dependencies:
     - attrs==21.4.0
+    - asgiref==3.6.0
     - click==8.0.3
     - sqlalchemy[mypy]==1.4.29
     - types-croniter==1.0.4
