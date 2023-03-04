@@ -246,3 +246,8 @@ def aware_datetime(
     return datetime.datetime(
         year, month, day, hour, minute, second, microsecond, tzinfo=tzinfo
     )
+
+
+@pytest.fixture
+def django_db(db):
+    yield db
