@@ -147,8 +147,9 @@ class PeriodicDeferrer:
         self, periodic_task: PeriodicTask, since: Optional[int], until: float
     ) -> Iterable[int]:
         cron_iterator = periodic_task.croniter
+        timestamp: int
         if since:
-            timestamp = cron_iterator.set_current(start_time=since)
+            cron_iterator.set_current(start_time=since)
             while True:
                 timestamp = round(cron_iterator.get_next(ret_type=float))
                 if timestamp > until:
