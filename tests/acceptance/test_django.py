@@ -6,8 +6,7 @@ from .django_app.models import Book
 async def test_django_tasks(app, django_db):
     @app.task(name="create_book")
     def create_book():
-        # Book.objects.create(title="The Old Man and the Sea")
-        pass
+        Book.objects.create(title="The Old Man and the Sea")
 
     # Uncomment when we'll have stopped supporting Python 3.7
     # @app.task(name="create_book_async")
